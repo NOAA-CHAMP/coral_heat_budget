@@ -1,0 +1,21 @@
+1;
+
+fmg;
+for mo=1:12;
+    spt(3,4,mo);
+    cts{mo}=grpplot_ts(subset_ts(stn.b_ndbc_erai_erai_30a_avhrr_dt,@(x)(find(get_month(x.date)==mo))),@get_hour,@nanmean);
+    dts=cts{mo}.date;
+    dat=cts{mo}.data;
+    %mp=min(dat);
+    mp=median(dat(dat<0));
+    p=(max(dat)-mp)*sin((dts-(13/24))*2*pi);
+    p(p<0)=0;
+    p = p + mp;
+    pfc{mo}.date=cts{mo}.date;
+    pfc{mo}.data=p;
+    hold on;
+    plot(pfc{mo}.date, pfc{mo}.data,'r-');
+    ylim([-.08,.08]);
+    xlabel(num2str(mo));
+    grid on;
+end;

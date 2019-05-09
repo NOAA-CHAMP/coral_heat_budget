@@ -1,0 +1,24 @@
+# DATA #
+########
+*.bb
+*.csv
+*.dat
+*.log
+*.mat
+*.jpg
+*.nc*
+*.png
+*.tgz
+*.tif*
+*.txt
+*.zip
+
+# SUBDIRECTORIES #
+##################
+__pycache__/
+bb/
+coast/
+data/
+figs/
+save/
+snackbar/
